@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: url('logo-header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px;
+}
+
+h3 {
+    clear: both;
+}
+
+main {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.intro-wrapper {
+    padding: 150px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #44444430;
+}
+
+.intro-wrapper .intro-section {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-wrapper .intro-section .intro-text {
+    float: right;
+    margin: auto;
+}
+
+.intro-wrapper .intro-section img {
+    float: left;
+    margin: auto;
+}
+
+.intro-wrapper .product-section {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.intro-wrapper .product-section .products-text {
+    float: right;
+    width: 60%;
+}
+
+.intro-wrapper .product-section img {
+    float: left;
+    margin-right: 20px;
+}
+
+.intro-section .services-section {
+    width: 700px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+.intro-wrapper .services-section .services-text {
+    float: right;
+    width: 60%;
+}
+
+.intro-wrapper .services-section img {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.reviews-section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+sidebar {
+    float: left;
+    width: 20%;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+content {
+    width: 75%;
+    padding: 20px;
+}
+
+footer {
+    background-color: #4678e9ff;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
+    border: 2px solid black;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul .product {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+ul .product figure {
+    overflow: hidden;
+}
+
+ul .product figure img {
+    float: left;
+    width: 50px;
+    margin-right: 10px;
+}
+
+ul .product figure figcaption {
+    float: right;
+    width: calc(100% - 60px);
+}
