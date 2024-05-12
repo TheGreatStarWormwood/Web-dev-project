@@ -1,0 +1,206 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test page</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+
+    <style>
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cart-button {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: #7496e8;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #cart-button span{
+            position: relative;
+            top: 9px;
+            right: 1px;
+        }
+
+        .cart-popup {
+            display: none;
+            position: fixed;
+            top: 120px;
+            right: 75px;
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .cart-popup span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="location.html">How to find us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+    <header>
+        <h1>UltraVet Clinic</h1>
+    </header>
+
+    <div class="products-main">
+
+        <div id="cart-button" onclick="openCartPopup()">
+            <span>&#128722;</span>
+        </div>
+
+        <!-- Cart popup window -->
+        <div id="cart-popup" class="cart-popup">
+            <!-- Add content for the cart popup window -->
+            <span onclick="closeCartPopup()">&times;</span>
+            <h3>Shopping Cart</h3>
+            <!-- Add cart content here -->
+        </div>
+
+        <!-- Your existing JavaScript code -->
+
+        <script>
+            // Your existing JavaScript code
+
+            // Function to open the cart popup
+            function openCartPopup() {
+                document.getElementById('cart-popup').style.display = 'block';
+            }
+
+            // Function to close the cart popup
+            function closeCartPopup() {
+                document.getElementById('cart-popup').style.display = 'none';
+            }
+        </script>
+
+        <ul id="productList"></ul>
+
+        <script>
+            class Product {
+                constructor(name, price) {
+                    this.name = name;
+                    this.price = price;
+                }
+            }
+
+            // Initialize example objects
+            const product1 = new Product("Product 1", 19.99);
+            const product2 = new Product("Product 2", 29.99);
+            const product3 = new Product("Product 3", 39.99);
+
+            // Array of products
+            const products = [product1, product2, product3];
+
+            // Get the ul element
+            const ul = document.getElementById("productList");
+
+            // Loop through the products and create li elements
+            products.forEach(product => {
+                const li = document.createElement("li");
+                li.textContent = `${product.name}\n$${product.price.toFixed(2)}`;
+                ul.appendChild(li);
+            });
+        </script>
+    </div>
+
+    <footer class="footer-nonsticky">
+
+        <section class="cta-section">
+            <h2><a href="location.html" target="_blank">Find Us</a></h2>
+        </section>
+
+        <p>
+            &copy; UltraVet | Fatima Miriam Scheib, Fadi Atwi
+        </p>
+
+    </footer>
+
+    <div id="sticky-circle" onclick="scrollToTop()">
+        <span>&#9650;</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickyCircle = document.getElementById("sticky-circle");
+
+            window.onscroll = function () {
+                showStickyCircle();
+            };
+
+            function showStickyCircle() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    stickyCircle.style.display = "block";
+                } else {
+                    stickyCircle.style.display = "none";
+                }
+            }
+
+            function scrollToTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+            window.scrollToTop = scrollToTop;
+        });
+
+    </script>
+
+
+
+    <script>
+        displayProducts(Products, "");
+    </script>
+
+</body>
+
+</html>

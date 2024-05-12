@@ -1,0 +1,379 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #4678e9;
+}
+
+.nav-bar {
+    background-color: #4678e9;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+nav li {
+    text-align: center;
+    display: inline-block;
+    margin: -1px;
+    background-color: #4678e9ff;
+    border: 2px solid #ccc;
+    width: 250px;
+    height: 60px;
+    line-height: 35px;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    display: block;
+    padding: 10px;
+}
+
+.nav-bar nav li:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+
+header {
+    background-image: url('logo-header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 80px;
+}
+
+main {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #4678e9, #ffffff);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-bottom: 100px;
+}
+
+.intro-wrapper {
+    font-size: 25px;
+    padding: 150px;
+    width: 70%;
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Intro section */
+
+.intro-wrapper .intro-section {
+    display: flex;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 2px #000000 solid;
+    border-radius: 2%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+.intro-wrapper .intro-section .intro-text {
+    float: right;
+    margin: auto;
+    padding: 5px;
+}
+
+.intro-wrapper .intro-section img {
+    float: left;
+    margin: auto;
+    padding: 5px;
+}
+
+/* Products section */
+
+.intro-wrapper .product-section {
+    display: flex;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #7496e8;
+    border: 2px #000000 solid;
+    border-radius: 2%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+.intro-wrapper .product-section .products-text {
+    float: right;
+    margin: auto;
+    padding: 5px;
+}
+
+.intro-wrapper .product-section img {
+    float: left;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+/* Services section */
+
+.intro-wrapper .services-section {
+    display: flex;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #7496e8;
+    border: 2px #000000 solid;
+    border-radius: 2%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+.intro-wrapper .services-section .services-text {
+    float: left;
+    margin: auto;
+    padding: 5px;
+}
+
+.intro-wrapper .services-section img {
+    float: left;
+    padding: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.reviews-section {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #7496e8;
+    border: 2px #000000 solid;
+    border-radius: 2%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000000;
+    padding: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+
+sidebar {
+    height: 100vh;
+    float: left;
+    width: 20%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 2%;
+    font-size: x-large;
+}
+
+sidebar li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+sidebar a {
+    text-decoration: none;
+    color: #4678e9ff;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 10px;
+}
+
+sidebar a:hover {
+    color: darkblue;
+}
+
+content {
+    width: 75%;
+    padding: 20px;
+}
+
+footer {
+    background-color: #4678e9ff;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-nonsticky {
+    background-color: #4678e9ff;
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+footer .cta-section {
+    font-size: x-large;
+    text-decoration: none;
+}
+
+footer .cta-section a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer .cta-section a:hover {
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+.products-main {
+    min-height: calc(100vh - 30px);
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 150px;
+    margin-top: 50px;
+}
+
+.products-main sidebar {
+    max-width: 18%;
+}
+
+.products-main h2 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.products-main content ul {
+    max-width: 800px;
+}
+
+content ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+content ul .product {
+    border: 2px #4678e95f solid;
+    border-radius: 2%;
+    margin: 10px;
+    overflow: hidden;
+}
+
+content ul .product figure {
+    margin: 0;
+    overflow: hidden;
+}
+
+content ul .product figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+content ul .product .product-info {
+    text-align: center;
+    padding: 10px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+content ul li.service {
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    ;
+}
+
+content ul li.service p {
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.price {
+    margin-left: 120px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+main .loc-container {
+    margin-top: 100px;
+    background-color: #7496e8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    padding: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+main .loc-container img {
+    float: right;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .loc-container .loc-text {
+    font-size: xx-large;
+    float: left;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+#sticky-circle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+#sticky-circle span {
+    font-size: 20px;
+}

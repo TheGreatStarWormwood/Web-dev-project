@@ -1,0 +1,9 @@
+ALL TAGS:
+-dog
+    -adult
+    -puppy
+-cat
+    -adult
+    -kitten
+-hygiene
+-health

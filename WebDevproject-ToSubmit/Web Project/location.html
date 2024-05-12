@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraVet Clinic Location</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="location.html">How to find us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <header>
+        <h1>UltraVet Clinic</h1>
+    </header>
+    <main>
+
+        <div class="loc-container">
+
+            <div class="loc-text">
+                <p>Appointments: +961 71 854 035</p>
+                <p>Night Emergencies: +961 3 851 493</p>
+                <h2>Social Media: </h2>
+                <p>Instagram: ultravetlb</p>
+            </div>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.837264598124!2d35.479584376267475!3d33.381159320320975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151e95dad2776bfb%3A0xd1d5e689073ffa18!2sUltraVet%20Veterinary%20Center!5e0!3m2!1sen!2slb!4v1704655527408!5m2!1sen!2slb"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="embed"></iframe>
+        </div>
+
+        </div>
+    </main>
+
+    
+
+    <footer class="footer-nonsticky">
+
+        <section class="cta-section">
+            <h2><a href="location.html" target="_blank">Find Us</a></h2>
+        </section>
+
+        <p>
+            &copy; UltraVet | Fatima Miriam Scheib, Fadi Atwi
+        </p>
+
+    </footer>
+
+    <div id="sticky-circle" onclick="scrollToTop()">
+        <span>&#9650;</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickyCircle = document.getElementById("sticky-circle");
+
+            window.onscroll = function () {
+                showStickyCircle();
+            };
+
+            function showStickyCircle() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    stickyCircle.style.display = "block";
+                } else {
+                    stickyCircle.style.display = "none";
+                }
+            }
+
+            function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+
+            window.scrollToTop = scrollToTop;
+        });
+    </script>
+
+
+</body>
+
+</html>

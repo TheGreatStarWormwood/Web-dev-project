@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraVet Clinic</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        main {
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="location.html">How to find us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header>
+        <h1>UltraVet Clinic</h1>
+    </header>
+
+    <main>
+
+        <div class="intro-wrapper">
+
+            <section class="intro-section">
+                <div class="intro-text">
+                    <p>
+                        At our veterinary clinic, we're devoted to top-tier pet care. Our dedicated team ensures the
+                        well-being and happiness of every furry friend. From preventive care to advanced treatments, we
+                        prioritize health, comfort, and compassion—a trusted space for all your pet needs.
+                    </p>
+                </div>
+                <img src="logo.jpg" alt="Intro" width="300px" height="250px">
+            </section>
+
+            <div class="clear"></div>
+
+            <section class="product-section">
+                <img src="image2.jpeg" alt="Products" width="275px" height="300px">
+                <div class="products-text">
+                    <h2>Products</h2>
+                    <p>
+                        Explore top-tier pet products for their health and happiness. From premium nutrition to
+                        essential
+                        care items,
+                        find everything your pet needs to thrive in one place. Quality guaranteed for their well-being.
+                        <a href="Products.html" target="_blank">Learn more</a>
+                    </p>
+                </div>
+            </section>
+
+            <div class="clear"></div>
+
+            <section class="services-section">
+                <div class="services-text">
+                    <h2>Services</h2>
+                    <p>Expert care for every step of your pet's journey. From routine check-ups to specialized
+                        treatments,
+                        our
+                        comprehensive services prioritize your pet's health. Trust us to provide exceptional veterinary
+                        care
+                        and
+                        support for their lifelong well-being. <a href="Services.html" target="_blank">Learn more</a>
+                    </p>
+                </div>
+                <img src="image3.png" alt="Services" width="320px" height="320px">
+            </section>
+
+            <div class="clear"></div>
+
+            <section class="reviews-section">
+                <h2>Reviews</h2>
+                <div class="review">
+                    <p><b>Stella Thompson: </b>I want to take a moment to express my deep appreciation for Dr. Nahli, an
+                        exceptional
+                        veterinarian who embodies the essence of compassion, respect, and devotion to both animals and
+                        their
+                        guardians. Dr. Nahli's genuine commitment and empathy truly touched our hearts as he tirelessly
+                        worked to
+                        save our beloved dog. Despite the unfortunate outcome, we are profoundly grateful for his
+                        unwavering
+                        patience, dedication, and unwavering optimism throughout the process. His genuine care and
+                        efforts
+                        have left
+                        a lasting impact on us, and we highly recommend Dr. Nahli for his remarkable approach to
+                        veterinary
+                        care</p>
+                </div>
+                <div class="review">
+                    <p><b>Ava Chen: </b>This clinic is highly recommended. Dr. Ahmad and all the staff are highly
+                        professional in
+                        the business and the best in all Lebanon.
+                        They treat pets well and do their jobs responsibly and humanly.</p>
+                </div>
+                <div class="review">
+                    <p><b>Lucas Martinez: </b>Dr. Ahmad and his staff are highly professional and skilled. The clinic is
+                        equipped
+                        with top technology and the shop has a wide variety of items and brands. Highly recommended if
+                        you
+                        want to
+                        pamper your pet!</p>
+                </div>
+
+            </section>
+
+
+        </div>
+
+        <div class="clear"></div>
+
+
+    </main>
+    <footer>
+
+        <section class="cta-section">
+            <h2><a href="location.html" target="_blank">Find Us</a></h2>
+        </section>
+
+        <p>
+            &copy; UltraVet | Fatima Miriam Scheib, Fadi Atwi
+        </p>
+
+    </footer>
+
+    <div id="sticky-circle" onclick="scrollToTop()">
+        <span>&#9650;</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickyCircle = document.getElementById("sticky-circle");
+
+            window.onscroll = function () {
+                showStickyCircle();
+            };
+
+            function showStickyCircle() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    stickyCircle.style.display = "block";
+                } else {
+                    stickyCircle.style.display = "none";
+                }
+            }
+
+            function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+
+            window.scrollToTop = scrollToTop;
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var sections = document.querySelectorAll('.intro-section, .product-section, .services-section, .reviews-section');
+
+            function showSectionOnScroll() {
+                sections.forEach(function (section) {
+                    if (isElementInViewport(section) && !section.classList.contains('fade-in')) {
+                        section.classList.add('fade-in');
+                    }
+                });
+            }
+
+            function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= -rect.height / 2 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            window.addEventListener('scroll', showSectionOnScroll);
+            window.addEventListener('resize', showSectionOnScroll);
+
+            showSectionOnScroll();
+        });
+    </script>
+
+</body>
+
+</html>

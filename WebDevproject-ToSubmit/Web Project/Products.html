@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Products</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        .products-main sidebar {
+            max-width: 18%;
+            border: 2px #4678e95f solid;
+            border-radius: 2%;
+            height: 50vh;
+            margin-left: 10px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="location.html">How to find us</a></li>
+                <li><a href="Products-Admin.html">Manage Store</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        function openCartPopup() {
+            document.getElementById('cart-popup').style.display = 'block';
+        }
+
+        function closeCartPopup() {
+            document.getElementById('cart-popup').style.display = 'none';
+        }
+    </script>
+
+
+    <script>
+
+        class Product {
+            constructor(name, price, img, tags) {
+                this.name = name;
+                this.price = price;
+                this.img = img;
+                this.tags = tags;
+            }
+        }
+
+
+        const Products = [
+            new Product("Vitamin Pet Supplements", 9, "products/vitamin-dog.png", ["dog", "health", "adult"]),
+            new Product("Promovit Pet Supplements", 6, "products/vitamin-dog2.png", ["dog", "health", "puppy"]),
+            new Product("Promovit Pet Boost", 8, "products/promovitBoost.png", ["dog", "health"]),
+            new Product("Whiskers Shampoo", 5, "products/whiskers-shampoo.png", ["shampoo", "puppies", "hygiene"]),
+            new Product("Beaphar Dry Shampoo", 5, "products/dog-shampoo-dry.png", ["dry shampoo", "dog", "hygiene", "adult"]),
+            new Product("Beaphar Dry Shampoo", 5, "products/cat-shampoo-dry.png", ["dry shampoo", "cat", "hygiene", "kitten"]),
+            new Product("Leo's Complete Cat Food", 15, "products/cat-food.png", ["cat", "food", "adult"]),
+            new Product("Leo's Complete Dog Food", 18, "products/dog-food.png", ["dog", "food", "adult"]),
+            new Product("MERA Snacks", 6, "products/MERAsnacks.png", ["cat", "snacks"])
+        ];
+
+        /*
+            ALL TAGS:
+            -dog
+                -adult
+                -puppy
+            -cat
+                -adult
+                -kitten
+            -hygiene
+            -health
+        */
+
+        const cart = [];
+
+        var countCart = 0;
+
+        function createProductElement(product) {
+            const listItem = document.createElement('div');
+            listItem.className = 'product';
+
+            const productFigure = document.createElement('div');
+            productFigure.className = 'product-figure';
+
+            const productImage = document.createElement('img');
+            productImage.src = product.img;
+            productImage.alt = product.name;
+
+            productFigure.appendChild(productImage);
+
+            const productInfo = document.createElement('div');
+            productInfo.className = 'product-info';
+
+            const productName = document.createElement('p');
+            productName.className = 'product-name';
+            productName.textContent = product.name;
+
+            const price = document.createElement('p');
+            price.className = 'price';
+            price.textContent = `${product.price}$`;
+
+            const addToCartButton = document.createElement('button');
+            addToCartButton.textContent = 'Add to Cart';
+            addToCartButton.className = 'add-to-cart-button';
+            addToCartButton.addEventListener('click', () => addToCart(product));
+
+
+            productInfo.appendChild(productName);
+            productInfo.appendChild(price);
+            productInfo.appendChild(addToCartButton);
+
+            listItem.appendChild(productFigure);
+            listItem.appendChild(productInfo);
+
+            return listItem;
+        }
+
+
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = countCart > 0 ? countCart : '';
+        }
+
+        function addToCart(item) {
+            cart.push(item);
+            countCart = countCart + 1;
+            updateCartUI();
+            updateCartCount();
+        }
+
+        function removeFromCart(item) {
+            const index = cart.indexOf(item);
+            if (index !== -1) {
+                countCart = countCart - 1;
+                cart.splice(index, 1);
+                updateCartUI();
+                updateCartCount();
+            }
+        }
+
+        function updateCartUI() {
+            const cartListContainer = document.getElementById('cart-list');
+            cartListContainer.innerHTML = '';
+
+            let totalPrice = 0;
+
+            cart.forEach(product => {
+                const cartElement = document.createElement('div');
+                cartElement.className = 'cartElement';
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'X';
+                removeButton.className = 'remove-button';
+                removeButton.addEventListener('click', () => removeFromCart(product));
+
+                const productInfo = document.createElement('p');
+                productInfo.textContent = product.name;
+
+                cartElement.appendChild(removeButton);
+                cartElement.appendChild(productInfo);
+
+                cartListContainer.appendChild(cartElement);
+
+                totalPrice += product.price;
+            });
+
+            const priceElement = document.createElement('p');
+            priceElement.className = 'cartPriceElement';
+            priceElement.textContent = 'Total price: ' + totalPrice;
+            cartListContainer.appendChild(priceElement);
+        }
+
+
+        function displayProducts(products, category) {
+            const content = document.querySelector('#content');
+
+            const heading = document.createElement('h2');
+            heading.id = category.toLowerCase();
+            document.getlement
+            heading.textContent = `${category} Products`;
+
+            const productList = document.createElement('div');
+            productList.className = 'product-list';
+
+            content.appendChild(heading);
+            content.appendChild(productList);
+
+            products.forEach(product => {
+                const productItem = createProductElement(product);
+                productList.appendChild(productItem);
+            });
+        }
+
+        function displayFilteredProducts(products, category) {
+            const content = document.querySelector('#content');
+            const heading = document.createElement('h2');
+            heading.id = category.toLowerCase();
+            heading.textContent = `${category} Products`;
+
+            const productList = document.createElement('div');
+            productList.className = 'product-list';
+
+            content.appendChild(heading);
+            content.appendChild(productList);
+
+            products.forEach(product => {
+                const productItem = createProductElement(product);
+                productList.appendChild(productItem);
+            });
+        }
+
+        function updateFilteredProducts() {
+            const content = document.querySelector('#content');
+            const selectedTags = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(checkbox => checkbox.value);
+            const price1 = parseFloat(document.getElementById('price1').value);
+            const price2 = parseFloat(document.getElementById('price2').value);
+
+            const filteredProducts = Products.filter(product => {
+                const hasTags = selectedTags.every(tag => product.tags.includes(tag));
+                const isWithinPriceRange = isNaN(price1) || isNaN(price2) || (product.price >= price1 && product.price <= price2);
+                return hasTags && isWithinPriceRange;
+            });
+
+            content.innerHTML = '';
+
+            displayFilteredProducts(filteredProducts, "");
+        }
+
+        // TODO figure this out
+        function handleFilterChange() {
+            updateFilteredProducts();
+        }
+
+        function attachEventListeners() {
+            const tagCheckboxes = document.querySelectorAll('.tag-checkbox');
+            tagCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', handleFilterChange);
+            });
+
+            const priceInputs = document.querySelectorAll('#price1, #price2');
+            priceInputs.forEach(input => {
+                input.addEventListener('input', handleFilterChange);
+            });
+        }
+
+
+    </script>
+
+
+
+    <header>
+        <h1>UltraVet Clinic</h1>
+        <img src="imgs/dog1.png" alt="" id="pug-header-img">
+        <img src="imgs/cat1.png" alt="" id="cat1">
+        <img src="imgs/paws.png" alt="" id="paws">
+    </header>
+
+    <div class="products-main">
+
+        <sidebar>
+
+            <h2>Filters</h2>
+            <form>
+                <!-- Checkboxes for tags -->
+                <label><input type="checkbox" class="tag-checkbox" value="dog"> Dogs</label>
+                <label><input type="checkbox" class="tag-checkbox" value="puppy"
+                        style="margin-left: 15px;">Puppy</label>
+                <br>
+                <label><input type="checkbox" class="tag-checkbox" value="cat"> Cat</label>
+                <label><input type="checkbox" class="tag-checkbox" value="kitten"
+                        style="margin-left: 31px;">Kitten</label>
+                <br>
+                <label><input type="checkbox" class="tag-checkbox" value="health"> Health</label>
+                <br>
+                <label><input type="checkbox" class="tag-checkbox" value="hygiene"> Hygiene</label>
+
+                <br>
+                <br>
+
+                <!-- Price range selector -->
+                <label>Price Range:</label>
+                <br>
+                <input type="number" id="price1" placeholder="Min Price">
+                <br>
+                <input type="number" id="price2" placeholder="Max Price">
+
+            </form>
+
+        </sidebar>
+
+        <content id="content">
+            <!-- PRODCUTS go here -->
+        </content>
+    </div>
+
+    <footer class="footer-nonsticky">
+
+        <section class="cta-section">
+            <h2><a href="location.html" target="_blank">Find Us</a></h2>
+        </section>
+
+        <p>
+            &copy; UltraVet | Fatima Miriam Scheib, Fadi Atwi
+        </p>
+
+    </footer>
+
+
+    <div id="sticky-circle" onclick="scrollToTop()">
+        <span>&#9650;</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickyCircle = document.getElementById("sticky-circle");
+
+            window.onscroll = function () {
+                showStickyCircle();
+            };
+
+            function showStickyCircle() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    stickyCircle.style.display = "block";
+                } else {
+                    stickyCircle.style.display = "none";
+                }
+            }
+
+            function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+
+            window.scrollToTop = scrollToTop;
+        });
+    </script>
+
+
+
+    <div id="cart-button" onclick="openCartPopup()">
+        <span id="cart-icon">&#128722;</span>
+        <span id="cart-count"></span>
+    </div>
+
+    <div id="cart-popup" class="cart-popup">
+
+        <span onclick="closeCartPopup()">&times;</span>
+        <h3>Shopping Cart</h3>
+
+        <div id="cart-list" class="cart-list">
+            <!-- CART ITEMS -->
+        </div>
+
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            displayProducts(Products, "");
+            attachEventListeners();
+        });
+    </script>
+
+</body>
+
+</html>

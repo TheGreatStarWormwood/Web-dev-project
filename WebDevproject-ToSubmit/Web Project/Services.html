@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Services</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        main {
+            min-height: calc(100vh - 30px);
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            margin-bottom: 150px;
+            margin-top: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+            justify-content: center;
+        }
+
+        .service-item {
+            border: 2px solid #4678e95f;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .book-appointment-button {
+            transform: scale(1.5);
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: solid 5px #051643;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        function openAppointmentPopup() {
+            document.getElementById('appointment-popup').style.display = 'block';
+        }
+
+        function closeAppointmentPopup() {
+            document.getElementById('appointment-popup').style.display = 'none';
+        }
+    </script>
+
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="location.html">How to find us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header>
+        <h1>UltraVet Clinic</h1>
+        <img src="imgs/dog1.png" alt="" id="pug-header-img">
+        <img src="imgs/cat1.png" alt="" id="cat1">
+        <img src="imgs/paws.png" alt="" id="paws">
+    </header>
+
+
+    <button class="book-appointment-button" onclick="openAppointmentPopup()" style="margin-top: 100px;">Book an
+        Appointment</button>
+
+    <main>
+
+
+
+        <div class="services-grid">
+            <div class="service-item">
+                <h2>Regular Checkup</h2>
+                <p>Regular health checkup for your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Dental Examination</h2>
+                <p>Comprehensive dental examination for your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>X-ray Examination</h2>
+                <p>Diagnostic X-ray examination for your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Dog Vaccination</h2>
+                <p>Vaccination for dogs to prevent various diseases.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Cat Vaccination</h2>
+                <p>Vaccination for cats to prevent various diseases.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Exotic Pet Vaccination</h2>
+                <p>Vaccination for exotic pets to prevent various diseases.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Spaying/Neutering</h2>
+                <p>Surgical procedure to spay or neuter your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Fracture Repair</h2>
+                <p>Surgical repair of fractures in your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Tumor Removal</h2>
+                <p>Surgical removal of tumors in your pet.</p>
+            </div>
+
+            <div class="service-item">
+                <h2>Custom Service</h2>
+                <p>Custom description for your custom service.</p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <script>
+        function displayService(serviceTitle) {
+            const serviceDescriptionElement = document.getElementById('serviceDescription');
+
+            const serviceDescription = getServiceDescription(serviceTitle);
+
+            const serviceContent = `
+                <h2>${serviceTitle}</h2>
+                <p>${serviceDescription}</p>
+                `;
+
+            serviceDescriptionElement.innerHTML = serviceContent;
+        }
+
+        function getServiceDescription(serviceTitle) {
+            switch (serviceTitle) {
+                case 'Regular Checkup':
+                    return 'Regular health checkup for your pet.';
+                case 'Dental Examination':
+                    return 'Comprehensive dental examination for your pet.';
+                case 'X-ray Examination':
+                    return 'Diagnostic X-ray examination for your pet.';
+                case 'Dog Vaccination':
+                    return 'Vaccination for dogs to prevent various diseases.';
+                case 'Cat Vaccination':
+                    return 'Vaccination for cats to prevent various diseases.';
+                case 'Exotic Pet Vaccination':
+                    return 'Vaccination for exotic pets to prevent various diseases.';
+                case 'Spaying/Neutering':
+                    return 'Surgical procedure to spay or neuter your pet.';
+                case 'Fracture Repair':
+                    return 'Surgical repair of fractures in your pet.';
+                case 'Tumor Removal':
+                    return 'Surgical removal of tumors in your pet.';
+                default:
+                    return 'Service description not available.';
+            }
+        }
+
+    </script>
+
+    <footer class="footer-nonsticky">
+
+        <section class="cta-section">
+            <h2><a href="location.html" target="_blank">Find Us</a></h2>
+        </section>
+
+        <p>
+            &copy; UltraVet | Fatima Miriam Scheib, Fadi Atwi
+        </p>
+
+    </footer>
+
+
+    <div id="appointment-popup">
+        <span onclick="closeAppointmentPopup()">&times;</span>
+        <h3>Book Appointment</h3>
+
+        <label for="client-name">Your Name:</label>
+        <input type="text" id="client-name" placeholder="Enter your name">
+
+        <label for="pet-name">Pet's Name:</label>
+        <input type="text" id="pet-name" placeholder="Enter your pet's name">
+
+        <label for="select-service">Select Service:</label>
+        <select id="select-service">
+            <option value="Regular Checkup">Regular Checkup</option>
+            <option value="Dental Examination">Dental Examination</option>
+            <option value="X-ray Examination">X-ray Examination</option>
+            <option value="Dog Vaccination">Dog Vaccination</option>
+            <option value="Cat Vaccination">Cat Vaccination</option>
+            <option value="Spaying/Neutering">Spaying/Neutering</option>
+            <option value="Fracture Repair">Fracture Repair</option>
+            <option value="Tumor Removal">Tumor Removal</option>
+        </select>
+
+        <label for="appointment-date">Select Date:</label>
+        <input type="text" id="appointment-date" placeholder="YYYY-MM-DD">
+
+
+
+        <label for="appointment-hour">Select Hour:</label>
+        <select id="appointment-hour">
+            <option value="9:00">9:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+        </select>
+
+        <br><br><br><br><br>
+
+        <button onclick="confirmAppointment()" id="confirmAppointment">Confirm Appointment</button>
+    </div>
+
+
+    <script>
+        function confirmAppointment() {
+            const clientName = document.getElementById('client-name').value;
+            const petName = document.getElementById('pet-name').value;
+            const appointmentDate = document.getElementById('appointment-date').value;
+            const appointmentHour = document.getElementById('appointment-hour').value;
+
+            const confirmationMessage = `Appointment Confirmed!\n\nClient Name: ${clientName}\nPet Name: ${petName}\nDate: ${appointmentDate}\nHour: ${appointmentHour}`;
+
+            alert(confirmationMessage);
+
+            closeAppointmentPopup();
+        }
+
+
+    </script>
+
+
+    <div id="sticky-circle" onclick="scrollToTop()">
+        <span>&#9650;</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickyCircle = document.getElementById("sticky-circle");
+
+            window.onscroll = function () {
+                showStickyCircle();
+            };
+
+            function showStickyCircle() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    stickyCircle.style.display = "block";
+                } else {
+                    stickyCircle.style.display = "none";
+                }
+            }
+
+            function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+
+            window.scrollToTop = scrollToTop;
+        });
+    </script>
+
+
+
+</body>
+
+</html>
